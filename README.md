@@ -1,5 +1,6 @@
 # Accept payments for PM book with Stripe PaymentIntent API
-# Peter Yang
+
+Peter Yang
 
 ### Overview
 This program accepts payments for my product management book using Stripe's PaymentIntent API. Below I've included instructions for installing the program, running through test cases, and saving successful payments to a file using a webhook.
