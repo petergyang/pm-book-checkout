@@ -1,9 +1,4 @@
-<<<<<<< Updated upstream
-import { useState } from "react";
-import { CardElement, useStripe, useElements } from "@stripe/react-stripe-js";
-=======
 import { useState, useEffect } from "react";
->>>>>>> Stashed changes
 import styled from "@emotion/styled";
 import axios from "axios"; // Make easy fetch requests
 
@@ -33,17 +28,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   const [isProcessing, setProcessingTo] = useState(false);
   const [checkoutError, setCheckoutError] = useState();
 
-<<<<<<< Updated upstream
-  const stripe = useStripe();
-  const elements = useElements();
-
-  // TIP
-  // use the cardElements onChange prop to add a handler
-  // for setting any errors:
-
-  const handleCardDetailsChange = ev => {
-    ev.error ? setCheckoutError(ev.error.message) : setCheckoutError();
-=======
   // Gets Stripe and Elements objects from Stripe JS
   const stripe = useStripe();
   const elements = useElements(); 
@@ -51,7 +35,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
   // Handle payment details input errors
   const handleCardDetailsChange = ev => {
     ev.error ? setCheckoutError(ev.error.message): setCheckoutError();
->>>>>>> Stashed changes
   };
 
   const handleFormSubmit = async ev => {
@@ -67,32 +50,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
         postal_code: ev.target.zip.value
       }
     };
-<<<<<<< Updated upstream
-
-    setProcessingTo(true);
-
-    const cardElement = elements.getElement("card");
-
-    try {
-      const { data: clientSecret } = await axios.post("/api/payment_intents", {
-        amount: price * 100
-      });
-
-      const paymentMethodReq = await stripe.createPaymentMethod({
-        type: "card",
-        card: cardElement,
-        billing_details: billingDetails
-      });
-
-      if (paymentMethodReq.error) {
-        setCheckoutError(paymentMethodReq.error.message);
-        setProcessingTo(false);
-        return;
-      }
-
-      const { error } = await stripe.confirmCardPayment(clientSecret, {
-        payment_method: paymentMethodReq.paymentMethod.id
-=======
     
     // Disables the submit button when the payment is processing
     setProcessingTo(true); 
@@ -111,7 +68,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
           card: elements.getElement(CardElement),
           billing_details: billingDetails
         }
->>>>>>> Stashed changes
       });
 
       if (error) {
@@ -121,51 +77,11 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       }
 
       onSuccessfulCheckout();
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
     } catch (err) {
       setCheckoutError(err.message);
     }
   };
 
-<<<<<<< Updated upstream
-  // Learning
-  // A common ask/bug that users run into is:
-  // How do you change the color of the card element input text?
-  // How do you change the font-size of the card element input text?
-  // How do you change the placeholder color?
-  // The answer to all of the above is to use the `style` option.
-  // It's common to hear users confused why the card element appears impervious
-  // to all their styles. No matter what classes they add to the parent element
-  // nothing within the card element seems to change. The reason for this is that
-  // the card element is housed within an iframe and:
-  // > styles do not cascade from a parent window down into its iframes
-
-  const iframeStyles = {
-    base: {
-      color: "#fff",
-      fontSize: "16px",
-      iconColor: "#fff",
-      "::placeholder": {
-        color: "#87bbfd"
-      }
-    },
-    invalid: {
-      iconColor: "#FFC7EE",
-      color: "#FFC7EE"
-    },
-    complete: {
-      iconColor: "#cbf4c9"
-    }
-  };
-
-  const cardElementOpts = {
-    iconStyle: "solid",
-    style: iframeStyles,
-    hidePostalCode: true
-=======
   // Styles the card input field
   const cardStyle = {
     style: {
@@ -182,7 +98,6 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       },
     },
     hidePostalCode: true,
->>>>>>> Stashed changes
   };
 
   return (
@@ -192,14 +107,7 @@ const CheckoutForm = ({ price, onSuccessfulCheckout }) => {
       </Row>
       <Row>
         <CardElementContainer>
-<<<<<<< Updated upstream
-          <CardElement
-            options={cardElementOpts}
-            onChange={handleCardDetailsChange}
-          />
-=======
           <CardElement options={cardStyle}/>
->>>>>>> Stashed changes
         </CardElementContainer>
       </Row>
       {checkoutError && <CheckoutError>{checkoutError}</CheckoutError>}
