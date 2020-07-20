@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 import Image from "./Image";
-import DonutQuantity from "./DonutQuantity";
+import BookQuantity from "./BookQuantity";
 
 const Shop = styled.div`
   padding: 10px 20px 40px 20px;
@@ -24,20 +24,20 @@ const Controls = styled.div`
   margin-top: 40px;
 `;
 
-const DonutShop = ({ onAddDonut, onRemoveDonut, numDonuts }) => {
+const BookShop = ({ onAddBook, onRemoveBook, numBooks }) => {
   return (
     <Shop>
-      <ShopName>/stripe/donut</ShopName>
-      <Image src="./donut.png" width="100px"></Image>
+      <ShopName>Buy PM Principles</ShopName>
+      <Image src="./book.png" width="500px"></Image>
       <Controls>
-        <DonutQuantity
-          onAdd={onAddDonut}
-          onRemove={onRemoveDonut}
-          quantity={numDonuts}
+        <BookQuantity
+          onAdd={onAddBook}
+          onRemove={onRemoveBook}
+          quantity={numBooks}
         />
       </Controls>
     </Shop>
   );
 };
 
-export default DonutShop;
+export default BookShop;
