@@ -7,7 +7,7 @@ This program accepts payments for my product management book using Stripe's Paym
 
 ### Getting Started
 1. Make sure you have React and Node.js installed `https://nodejs.org/en/`
-2. Clone this repo `git clone https://github.com/petergyang/pm-book-checkout.git`
+2. From terminal, clone the repo `git clone https://github.com/petergyang/pm-book-checkout.git`
 3. From terminal, cd into folder `pm-book-checkout`
 4. Install the dependencies `npm install`
 5. Install ee-first `npm install ee-first`
