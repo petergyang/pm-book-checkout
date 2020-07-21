@@ -10,8 +10,7 @@ This program accepts payments for my product management book using Stripe's Paym
 2. From terminal, clone the repo `git clone https://github.com/petergyang/pm-book-checkout.git`
 3. From terminal, cd into folder `pm-book-checkout`
 4. Install the dependencies `npm install`
-5. Install ee-first `npm install ee-first`
-   ^ Not sure why this isn't included in step 4 
+5. Install ee-first `npm install ee-first` <-- Can't debug why this isn't included in step 4, but please install it
 6. In your code editor: 
    - Update `.env` file with your Stripe test publishable and secret keys (get these from dashboard)
    - Go to `components/layout.jsx` file, update `const stripePromise` (line 12) with your Stripe test publishable key
@@ -26,7 +25,7 @@ This program accepts payments for my product management book using Stripe's Paym
 4. In doc, click `Check payments` button and confirm that all test cases passed
 
 ### Saving successful payment ids to payments.log file with webhook 
-1. Set up Stripe CLI if you haven't already. Instructions: `https://stripe.com/docs/payments/handling-payment-events` 
+1. Set up Stripe CLI. Instructions: `https://stripe.com/docs/payments/handling-payment-events` 
 2. Run the program `npm start` from `pm-book-checkout` folder
 3. In a separate terminal, type `stripe listen --forward-to http://localhost:4242/webhook`
 4. Go to `http://localhost:3000/` to see the program. Fill in the payment details using the test card number `4242 4242 4242 4242`. Click `Pay $8.99` button and confirm that the payment succeeded.
