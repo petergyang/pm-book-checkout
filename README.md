@@ -10,11 +10,14 @@ This program accepts payments for my product management book using Stripe's Paym
 2. Clone this repo `git clone https://github.com/petergyang/pm-book-checkout.git`
 3. From terminal, cd into folder `pm-book-checkout`
 4. Install the dependencies `npm install`
-5. In your code editor: 
+5. Install ee-first `npm install ee-first`
+   ^ Not sure why this isn't included in step 4 
+6. In your code editor: 
    - Update `.env` file with your Stripe test publishable and secret keys (get these from dashboard)
-   - Update `layout.jsx` file `const stripePromise` (line 12) with your Stripe test publishable key
-6. Run the program `npm start`
-7. Go to `http://localhost:3000/` to see the program 
+   - Go to `components/layout.jsx` file, update `const stripePromise` (line 12) with your Stripe test publishable key
+7. Build the program `npm run build`
+8. Run the program `npm start`
+9. Go to `http://localhost:3000/` to see the program 
 
 ### Run through test cases
 1. Run the program `npm start`
@@ -23,12 +26,11 @@ This program accepts payments for my product management book using Stripe's Paym
 4. In doc, click `Check payments` button and confirm that all test cases passed
 
 ### Saving successful payment ids to payments.log file with webhook 
-1. Visit `https://stripe.com/docs/payments/handling-payment-events` and follow the instructions to install and set up Stripe CLI with your Stripe account
-2. Run the program `npm start` from `pm-book-checkout`
+1. Set up Stripe CLI if you haven't already. Instructions: `https://stripe.com/docs/payments/handling-payment-events` 
+2. Run the program `npm start` from `pm-book-checkout` folder
 3. In a separate terminal, type `stripe listen --forward-to http://localhost:4242/webhook`
-4. In same terminal as step 3, find your webhook secret and copy and paste it into your `.env` file
-5. Go to `http://localhost:3000/` to see the program. Fill in the payment details using the test card number `4242 4242 4242 4242`. Click `Pay $8.99` button and confirm that the payment succeeded.
-6. Open payments.log in code editor, confirm that a payment id is logged:
+4. Go to `http://localhost:3000/` to see the program. Fill in the payment details using the test card number `4242 4242 4242 4242`. Click `Pay $8.99` button and confirm that the payment succeeded.
+5. Open payments.log in code editor, confirm that a payment id is logged:
    e.g. `{"message":"pi_1H6lpiICRPF0djPHXWRZ0wmh","level":"info"}`
 
 ### About the project
