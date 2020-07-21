@@ -1,4 +1,4 @@
-# Accept payments for PM book with Stripe PaymentIntent API
+## Accept payments for PM book with Stripe PaymentIntent API
 
 Peter Yang
 
@@ -7,8 +7,8 @@ This program accepts payments for my product management book using Stripe's Paym
 
 ### Getting Started
 1. Make sure you have React and Node.js installed `https://nodejs.org/en/`
-2. Clone this repo from Github
-3. From terminal, cd into project folder `pm-book-checkout`
+2. Clone this repo `git clone https://github.com/petergyang/pm-book-checkout.git`
+3. From terminal, cd into folder `pm-book-checkout`
 4. Install the dependencies `npm install`
 5. In your code editor: 
    - Update `.env` file with your Stripe test publishable and secret keys (get these from dashboard)
